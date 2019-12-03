@@ -1,14 +1,39 @@
 import React from 'react';
 
+import './login.css'
 
-import Button from 'antd/es/button';
-import { Router, Route, Link } from 'react-router'
-function Login() {
-  return (
-    <div className="App">
-       <Button type="primary">Button</Button>
+import LoginFrom from './loginform'
+import RegFrom from './regfrom'
+
+class Login extends React.Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      loginform:true,
+      aniform:false
+    }
+  }
+  Toggle=(data)=>{
+    this.setState({
+      aniform:true,
+    },()=>{
+      setTimeout(()=>this.setState({ 
+        loginform:data,
+      }),200)
+      setTimeout(()=>this.setState({ 
+        aniform:false,
+      }),500)
+    })
+  }
+  render() {
+    return (
+    <div className="login">
+       <div className={this.state.aniform?'aniform':''} style={{background:'rgba(255,255,255,.8)'}}>
+        {this.state.loginform?<LoginFrom toggle ={this.Toggle}/>:<RegFrom toggle ={this.Toggle} />}
+       </div>
     </div>
-  );
+    );
+  }
 }
 
 export default Login;

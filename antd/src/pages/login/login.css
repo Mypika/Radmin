@@ -1,0 +1,43 @@
+.login .login-form {
+    max-width: 300px;
+    border: 1px solid #cccccc;
+    padding: 35px;
+  }
+.login-form-forgot {
+    float: right;
+  }
+.login-form-button {
+    width: 100%;
+  }
+.login{
+    background:url(http://img.pconline.com.cn/images/upload/upc/tx/softbbs/1006/15/c0/4219174_1276539693784_1024x1024soft.jpg);
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+#canvas{
+    background: chartreuse;
+}
+.vifcode{
+    display: flex;
+    flex-direction: row;
+}
+/* 
+*登录 
+*/
+.title{
+    text-align: center;
+    font-size: 28px;
+    color: #aaa;
+}
+/* 
+** *注册*
+*/
+.login .login-form-reg{
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

@@ -1,6 +1,6 @@
 import React ,{Component}from 'react';
 import './App.css';
-import Button from 'antd/es/button';
+
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Index from '../src/pages/index/index'
@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {  }
   }
-  render() {
+  render() {  
     return (
       <Router>
         <Route path="/"  component={Index} />

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 
-import Button from 'antd/es/button';
+// import {Button} from 'antd';
 import {BrowserRouter as Router, Route } from 'react-router-dom'
 
 class Index extends Component {
