@@ -3168,6 +3168,11 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.2.0, cosmiconfig@^5.2.1:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
+countup.js@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-1.9.3.tgz#ce3e50cd7160441e478f07da31895edcc0f1c9dd"
+  integrity sha1-zj5QzXFgRB5HjwfaMYle3MDxyd0=
+
 create-ecdh@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"
@@ -9180,6 +9185,15 @@ react-app-rewired@^2.1.5:
   integrity sha512-Gr8KfCeL9/PTQs8Vvxc7v8wQ9vCFMnYPhcAkrMlzkLiMFXS+BgSwm11MoERjZm7dpA2WjTi+Pvbu/w7rujAV+A==
   dependencies:
     semver "^5.6.0"
+
+react-countup@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-4.2.3.tgz#22581e68861b2b93be0cf0d5c4c6dff349e7b3b0"
+  integrity sha512-4re0CdtymFC0z5YivMnnBg2SC5ugqt4is/Y/RyTRTY/4QePawUhi2+Y23cQPUjXsdm/FpvicD9ZkQ4H+zVBsZg==
+  dependencies:
+    countup.js "^1.9.3"
+    prop-types "^15.7.2"
+    warning "^4.0.3"
 
 react-dev-utils@^9.1.0:
   version "9.1.0"

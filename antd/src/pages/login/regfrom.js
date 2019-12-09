@@ -25,20 +25,22 @@ class NormalLoginForm extends React.Component {
                 rules: [{ required: true, message: '用户名为空' }],
             })(<Input
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="username"
+                placeholder="username" allowClear
                 />,)}
             </Form.Item>
             <Form.Item>
             {getFieldDecorator('password', {
                 rules: [{ required: true, message: '请输入密码' }],
-            })(<Input.Password
-                placeholder="password" />,)}
+            })(<Input.Password 
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="password" allowClear /> ,)}
             </Form.Item>
             <Form.Item>
-            {getFieldDecorator('password', {
+            {getFieldDecorator('Secpassword', {
                 rules: [{ required: true, message: '两次密码不一致' }],
             })(<Input.Password
-                placeholder="重复你的密码" />,)}
+                prefix={<Icon type="block" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="重复你的密码" allowClear />,)}
             </Form.Item>
             
             <Form.Item>

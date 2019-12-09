@@ -11,7 +11,8 @@
   }
 .login{
     background:url(http://img.pconline.com.cn/images/upload/upc/tx/softbbs/1006/15/c0/4219174_1276539693784_1024x1024soft.jpg);
-    background-size: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;

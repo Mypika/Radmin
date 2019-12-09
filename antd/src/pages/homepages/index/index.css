@@ -1,0 +1,26 @@
+.HomeIndex{
+    display: flex;
+    flex-direction: row;
+}
+.HomeIndex-left{
+    flex: 3;
+}
+.HomeIndex-right{
+    flex: 1;
+    margin-left: 25px;
+}
+.CardOver{
+    cursor:'pointer';
+}
+.CardOver:hover{
+    box-shadow: 0px 0px 10px 5px #ccc;
+}
+.Left_top_meau{
+    font-size: 22px;
+}
+.Left_top_meau span{
+    margin-left: 20px;
+}
+.Left_top_num{
+    font-size: 32px;
+}

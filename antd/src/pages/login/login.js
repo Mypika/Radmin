@@ -25,11 +25,15 @@ class Login extends React.Component {
       }),500)
     })
   }
+  LoginSkip=()=>{
+    sessionStorage.setItem('username','123')
+    this.props.history.push('/home')
+  }
   render() {
     return (
     <div className="login">
        <div className={this.state.aniform?'aniform':''} style={{background:'rgba(255,255,255,.8)'}}>
-        {this.state.loginform?<LoginFrom toggle ={this.Toggle}/>:<RegFrom toggle ={this.Toggle} />}
+          {this.state.loginform?<LoginFrom LoginSkip={this.LoginSkip}  toggle ={this.Toggle}/>:<RegFrom toggle ={this.Toggle} />}
        </div>
     </div>
     );

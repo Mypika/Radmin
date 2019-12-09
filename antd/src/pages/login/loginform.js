@@ -8,7 +8,7 @@ class NormalLoginForm extends React.Component {
         super(props)
         this.state={
             codes:[],
-            codeList:[ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+            codeList:['1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 
                 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
                 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 
@@ -16,11 +16,22 @@ class NormalLoginForm extends React.Component {
         }
     }
   handleSubmit = e => {
-    e.preventDefault();
+      e.preventDefault()
     this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
+        if(!err){
+            if(values.vifcode.toLowerCase()!==this.state.codes.toLowerCase()){
+                this.props.form.setFields({
+                    vifcode: {
+                      value: values.vifcode,
+                      errors: [new Error('验证码不正确')],
+                    },
+                  });
+            }else{
+                this.props.LoginSkip()
+            }   
+        }else{
+           
+        }
     });
   };
   componentDidMount(){
@@ -38,10 +49,11 @@ class NormalLoginForm extends React.Component {
         ctx.strokeStyle='rgba('+r+','+b+','+g+',1)'
         ctx.font = (Math.random()*20+12)+"px serif";
         ctx.strokeText(this.state.codeList[num],15*(i+1),20)
-        this.setState({
-            codes:codes.push(this.state.codeList[num])
-        })
+        codes.push(this.state.codeList[num])
     }
+    this.setState({
+        codes:codes.join('')
+    })
 }
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -59,26 +71,32 @@ class NormalLoginForm extends React.Component {
                 rules: [{ required: true, message: '用户名为空' }],
             })(<Input
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="username"
+                placeholder="username" 
+                allowClear
                 />,)}
             </Form.Item>
             <Form.Item>
             {getFieldDecorator('password', {
                 rules: [{ required: true, message: '请输入密码' }],
             })(<Input.Password
-                placeholder="Password" />,)}
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Password"  allowClear/>,)}
             </Form.Item>
-            <Form.Item
-                className = "vifcode"
-                hasFeedback>
-                 <Row justify="space-between" type='flex' >
-                    <Col span={14}><Input placeholder="验证码" id="error2" /></Col>
+            <Form.Item>
+            {getFieldDecorator('vifcode', {
+                rules: [{ required: true, message: '请输入验证码' }],
+            })( <Row justify="space-between" type='flex' >
+                    <Col span={14}><Input 
+                                    maxLength={4}
+                                    prefix={<Icon type="safety-certificate" style={{ color: 'rgba(0,0,0,.25)' }} />} 
+                                    placeholder="验证码" id="error2" /></Col>
                     <Col ><canvas
                             onClick={this.CanViCode}
-                            style={{cursor:'pointer',border:'1px solid #bbb'}} 
+                            style={{cursor:'pointer',border:'1px solid #bbb'}}
                             ref={(ref)=>{this.canvas = ref}}
                             width="80" height="35" ></canvas></Col>
-                 </Row>
+                        </Row>,)}
+              
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit" className="login-form-button">

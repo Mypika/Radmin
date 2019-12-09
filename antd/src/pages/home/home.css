@@ -1,0 +1,39 @@
+.logo {
+    height: 32px;
+    background: url(http://i0.hdslb.com/bfs/article/5a219223033d41a7297b2e1e5ab7ff1363c927bb.jpg);
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    margin: 16px;
+  }
+
+.userDrop{
+  border-bottom: 1px solid #ff0000;
+}
+.userDrop>span{
+  color: #ff0000;  
+}
+.Menus .ant-dropdown-menu-item-group-list .ant-dropdown-menu-item{
+    padding: 15px 12px;
+}
+.HomeSarch{
+    animation:Sarch 0.5s;
+}
+.noHomeSarch{
+  animation:noSarch 0.5s;
+}
+@keyframes noSarch{
+  0%{
+    width: 300px;
+  }
+  100%{
+    width: 0px;
+  }
+}
+@keyframes Sarch{
+    0%{
+      width: 0px;
+    }
+    100%{
+      width: 300px;
+    }
+}
